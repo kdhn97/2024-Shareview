@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 200px
+    }
+  </style>
+</head>
+<body>
+  <h1>영화 받아오기</h1>
+  <a href="{% url "actor" %}">[배우]</a>
+  <form action="{% url "download" %}">
+    <input type="submit" value="download">
+  </form>
+  <form action="{% url "delete" %}">
+    <input type="submit" value="지우기">
+  </form>
+
+  {% for movie in movies %}
+  <p> {{movie.title}} </p>
+  <img src="{{movie.poster}}" alt="img" width=50>
+  <hr>
+  {% endfor %}
+</body>
+</html>
